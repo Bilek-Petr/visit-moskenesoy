@@ -1,9 +1,14 @@
 import Navbar from "./components/Navbar";
+import BannerVideo from "./components/Hero/BannerVideo";
 
 function App() {
   return (
     <>
-      <Navbar />
+      <div className="relative h-[100svh]">
+        <Navbar />
+        <BannerVideo />
+      </div>
+      <div>asd</div>
     </>
   );
 }

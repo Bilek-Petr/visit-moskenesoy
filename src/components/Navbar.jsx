@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Navbar() {
   return (
-    <header className="shadow-navShadow font-oswald fixed left-0 top-0 z-10 w-full bg-white">
+    <header className="shadow-navShadow fixed left-0 top-0 z-10 w-full bg-white">
       <nav className="flex items-center justify-between">
         {/* logo */}
         <div className="flex shrink-0 p-4">
