@@ -4,7 +4,7 @@ import { GoArrowDown } from "react-icons/go";
 export default function BannerVideo() {
   return (
     <>
-      <div className="absolute left-0 top-0 z-[-1] h-full w-full">
+      <div className="relative h-[calc(100svh-4rem)] w-full overflow-hidden">
         <video
           autoPlay
           muted
@@ -21,10 +21,10 @@ export default function BannerVideo() {
 
       {/* TEXT  */}
       <div className="absolute bottom-0 left-0 z-10 -translate-y-3 translate-x-10 text-6xl uppercase tracking-tight text-fontWhite drop-shadow-4xl before:absolute before:-left-10 before:top-[0.75rem] before:h-full before:w-[0.7rem] before:bg-mainRed before:content-[''] sm:text-8xl xl:text-[10rem]">
-        <span>
+        <h1>
           Explore<br></br>Moskenesøy<br></br>
           <span className="font-bold text-mainRed">Now!</span>
-        </span>
+        </h1>
       </div>
 
       <div className="absolute bottom-2 left-1/2 hidden -translate-x-1/2 transform sm:block">
