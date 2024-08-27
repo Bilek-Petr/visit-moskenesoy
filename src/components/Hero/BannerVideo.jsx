@@ -1,4 +1,5 @@
 import React from "react";
+import { GoArrowDown } from "react-icons/go";
 
 export default function BannerVideo() {
   return (
@@ -19,10 +20,15 @@ export default function BannerVideo() {
       </div>
 
       {/* TEXT  */}
-      <div className="text-fontWhite drop-shadow-4xl before:bg-mainRed absolute bottom-0 left-0 z-20 -translate-y-3 translate-x-10 text-6xl uppercase tracking-tight before:absolute before:-left-10 before:top-[0.75rem] before:h-full before:w-[0.7rem] before:content-[''] sm:text-8xl xl:text-[10rem]">
+      <div className="absolute bottom-0 left-0 z-10 -translate-y-3 translate-x-10 text-6xl uppercase tracking-tight text-fontWhite drop-shadow-4xl before:absolute before:-left-10 before:top-[0.75rem] before:h-full before:w-[0.7rem] before:bg-mainRed before:content-[''] sm:text-8xl xl:text-[10rem]">
         <span>
-          Explore<br></br>Moskenesøy<br></br>Now!
+          Explore<br></br>Moskenesøy<br></br>
+          <span className="font-bold text-mainRed">Now!</span>
         </span>
+      </div>
+
+      <div className="absolute bottom-2 left-1/2 hidden -translate-x-1/2 transform sm:block">
+        <GoArrowDown className="size-10 animate-pulse text-white" />
       </div>
     </>
   );
