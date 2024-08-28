@@ -28,7 +28,12 @@ function App() {
         isDestinationActive={isDestinationActive}
       />
 
-      {isDestinationActive && <Destinations isVisible={isDestinationActive} />}
+      {isDestinationActive && (
+        <Destinations
+          toggleDestinations={toggleDestinations}
+          isVisible={isDestinationActive}
+        />
+      )}
 
       <Routes>
         <Route path="/" element={<Home />} />
