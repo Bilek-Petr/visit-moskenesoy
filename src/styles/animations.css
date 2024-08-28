@@ -1,0 +1,19 @@
+.slide-down {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.slide-down.active {
+  max-height: 500px; /* Adjust to the max height of the content */
+}
+
+.slide-up {
+  max-height: 500px;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.slide-up.inactive {
+  max-height: 0;
+}

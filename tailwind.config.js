@@ -6,6 +6,7 @@ export default {
       colors: {
         mainRed: "#DF052C",
         fontWhite: "#fff",
+        fontGrey: "#616060",
       },
       fontFamily: {
         oswald: ["Oswald", "sans-serif"],
