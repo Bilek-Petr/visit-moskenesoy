@@ -34,28 +34,43 @@ const destinationData = [
   },
 ];
 
-export default function Destinations({ isVisible }) {
+export default function Destinations({ isVisible, toggleDestinations }) {
+  const [showDestinations, setShowDestinations] = useState(false);
+
+  useEffect(() => {
+    if (isVisible) {
+      setShowDestinations(true);
+    } else {
+      // Wait for the animation to finish before hiding the element
+      const timer = setTimeout(() => {
+        setShowDestinations(false);
+      }, 500); // Match this with your animation duration
+      return () => clearTimeout(timer);
+    }
+  }, [isVisible]);
+
   return (
     <div
-      className={`fixed inset-x-0 top-16 z-20 h-[calc(100svh-4rem)] transition-transform duration-500 lg:h-[50svh] ${
-        isVisible
-          ? "animate-slideDown"
-          : "-translate-y-full transform opacity-0"
-      }`}
+      className={`fixed inset-x-0 top-16 z-20 h-[calc(100svh-4rem)] transition-opacity duration-500 lg:h-[50svh] ${showDestinations ? "visible opacity-100" : "invisible opacity-0"}`}
+      style={{
+        transform: isVisible ? "translateY(0)" : "translateY(-100%)",
+      }}
     >
-      <div className="group grid h-full w-full cursor-pointer grid-rows-5 lg:grid-cols-5 lg:grid-rows-none">
+      <div className="grid h-full w-full cursor-pointer grid-rows-5 lg:grid-cols-5 lg:grid-rows-none">
         {destinationData.map((item, index) => (
           <Link
+            onClick={toggleDestinations}
             to={`/${item.name}`}
             key={index}
-            className={`relative overflow-hidden transition-all ${isVisible ? "animate-slideDown" : ""}`}
+            className={`relative overflow-hidden transition-transform duration-700 ease-in-out ${showDestinations ? "animate-slideDown" : ""}`}
+            style={{ animationDelay: `${index * 20}ms` }}
           >
             <img
               src={item.image}
               alt={item.description}
               className="h-full w-full object-cover transition-transform duration-700 ease-in-out hover:scale-110"
             />
-            <div className="absolute left-0 top-0">
+            <div className="absolute left-0 top-3 lg:top-0">
               <span className="destination__title | bg-mainRed font-oswald text-5xl uppercase text-fontWhite lg:py-4">
                 {item.name}
               </span>
