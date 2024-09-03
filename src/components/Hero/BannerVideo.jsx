@@ -1,14 +1,24 @@
 import React from "react";
 import { GoArrowDown } from "react-icons/go";
-
-window.addEventListener("scroll", (e) => {
-  console.log(e);
-});
+import { useScroll } from "../../context/ScrollContext";
 
 export default function BannerVideo() {
+  const { bannerTextRef } = useScroll();
+
+  const scrollToBanner = () => {
+    if (bannerTextRef.current) {
+      window.scrollTo({
+        top: bannerTextRef.current.offsetTop,
+        behavior: "smooth",
+      });
+    } else {
+      console.error("Ref is null or undefined");
+    }
+  };
+
   return (
     <>
-      <div className="relative h-[calc(100svh-4rem)] w-full overflow-hidden">
+      <div className="relative h-[calc(100svh)] w-full overflow-hidden">
         <video
           autoPlay
           muted
@@ -30,8 +40,11 @@ export default function BannerVideo() {
         </h1>
       </div>
 
-      <div className="absolute bottom-2 left-1/2 hidden -translate-x-1/2 transform sm:block">
-        <GoArrowDown className="size-10 animate-pulse cursor-pointer text-white" />
+      <div className="group absolute bottom-0 right-0 -translate-x-3 -translate-y-3 transform sm:block">
+        <GoArrowDown
+          className="hidden size-12 transform animate-pulse cursor-pointer rounded-full bg-mainRed text-white duration-200 hover:scale-110 hover:ring-2 hover:ring-white group-hover:animate-none sm:block lg:size-14"
+          onClick={scrollToBanner}
+        />
       </div>
     </>
   );
