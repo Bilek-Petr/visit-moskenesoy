@@ -5,7 +5,7 @@
 }
 
 .slide-down.active {
-  max-height: 500px; /* Adjust to the max height of the content */
+  max-height: 500px;
 }
 
 .slide-up {
