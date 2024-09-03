@@ -41,10 +41,9 @@ export default function Destinations({ isVisible, toggleDestinations }) {
     if (isVisible) {
       setShowDestinations(true);
     } else {
-      // Wait for the animation to finish before hiding the element
       const timer = setTimeout(() => {
         setShowDestinations(false);
-      }, 500); // Match this with your animation duration
+      }, 500); 
       return () => clearTimeout(timer);
     }
   }, [isVisible]);
